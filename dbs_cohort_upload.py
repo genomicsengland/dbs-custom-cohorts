@@ -51,6 +51,7 @@ seq_no_raw = seq_no
 seq_no = seq_no.zfill(8)
 
 df_cols = df.shape[1]
+print(df.shape[0])
 header_row = []
 footer_row = []
 for i in range(df_cols):
@@ -82,6 +83,7 @@ base_path = '/tmp/batch_request_process/'
 test_path = './'
 curr_date = datetime.today().strftime('%Y%m%d')
 ftype = '.csv'
+seq_no = 83
 
 fname = base_path + str(curr_date) + str(seq_no) + '_dbs_batch_request' + ftype
 test_fname = test_path + str(curr_date) + str(seq_no) + '_dbs_batch_request' + ftype

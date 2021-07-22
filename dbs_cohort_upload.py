@@ -86,7 +86,7 @@ ftype = '.csv'
 fname = base_path + str(curr_date) + str(seq_no) + '_dbs_batch_request' + ftype
 test_fname = test_path + str(curr_date) + str(seq_no) + '_dbs_batch_request' + ftype
 df_out = df_out.replace(np.nan, '', regex=True)
-df_out.to_csv(test_fname, header=False, index=False)
+df_out.to_csv(fname, header=False, index=False)
 
 # Updating request tracker
 

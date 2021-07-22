@@ -25,8 +25,18 @@ engine_dams = create_engine('postgresql+psycopg2://cdt_user:Daws0n_H&ll@cln-cdt-
 # df_dict = [{column: value for column, value in row.items()} for row in result]
 
 # df = pd.DataFrame(df_dict)
-csv_path = r'./request_data/mild_request_file.csv'
-df = pd.read_csv(csv_path)
+
+# From CSV Direct
+# csv_path = r'./request_data/mild_request_file.csv'
+# df = pd.read_csv(csv_path)
+
+# From DB
+with engine_db.connect() as c:
+    resultproxy = c.execute("SELECT * FROM request.request_landing")
+    
+
+df_dict = [{column: value for column, value in rowproxy.items()} for rowproxy in resultproxy]
+df = pd.DataFrame(df_dict)
 
 
 # Create Header and Footer

@@ -24,6 +24,11 @@ with engine_db.connect() as c:
 df_dict = [{column: value for column, value in rowproxy.items()} for rowproxy in resultproxy]
 df = pd.DataFrame(df_dict)
 
+# Change DOB
+df['date_of_birth'] = pd.to_datetime(df['date_of_birth']).dt.strftime('%Y%m%d')
+
+
+
 # Get seq no
 
 with engine_index.connect() as c:
@@ -33,7 +38,7 @@ temp = [{column: value for column, value in rowproxy.items()} for rowproxy in re
 seq_dict = temp[0]
 
 # Create Header and Footer
-cur_datetime = '140000' + str(datetime.today().strftime('%Y%m%d'))
+cur_datetime = '100000' + str(datetime.today().strftime('%Y%m%d'))
 org_code = '8J834'
 df_len = str(df.shape[0])
 num_records = df_len.zfill(6)

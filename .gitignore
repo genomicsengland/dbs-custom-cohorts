@@ -2,3 +2,5 @@
 /request_data
 mild_prep.py
 venv/
+*.csv
+.DS_Store
